@@ -1,8 +1,6 @@
 Learning Django Tutorials / Building a Django Website with itProger 
 
 # itProger - Learning Django
-
-## About
 Уроки изучения Django / Создание сайта на Джанго по видеокурсу
 
 ## Links
