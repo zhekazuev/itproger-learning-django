@@ -9,7 +9,53 @@ Learning Django Tutorials / Building a Django Website with itProger
 
 ## Project Structure Example
 
-Example 1
+
+Example from [there](https://github.com/alexey-goloburdin/django-clean-template)
+```sh
+$ cd project_repository_folder/  <- Repo from github
+$ django-admin startproject config
+$ mv config src
+README
+LICENSE
+.gitignore
+src/                  <- project root - django-admin startproject config - and rename to src
+├── config/              <- Django root - django-admin startproject config
+│   ├── __init__.py
+│   ├── settings/
+│   │   ├── common.py
+│   │   ├── development.py
+│   │   ├── i18n.py
+│   │   ├── __init__.py
+│   │   └── production.py
+│   ├── urls.py
+│   └── wsgi.py
+├── apps/
+│   └── __init__.py
+├── configs/
+│   ├── apache2_vhost.sample
+│   └── README
+├── doc/
+│   ├── Makefile
+│   └── source/
+│       └── *snap*
+├── manage.py
+├── README
+├── run/
+│   ├── media/
+│   │   └── README
+│   ├── README
+│   └── static/
+│       └── README
+├── static/
+│   └── README
+└── templates/
+    ├── base.html
+    ├── core
+    │   └── login.html
+    └── README
+```
+
+Example from Django-docs
 ```sh
 $ cd project_repository_folder/  <- Repo from github
 $ django-admin startproject [projectname]
