@@ -29,17 +29,18 @@ src/                  <- project root - django-admin startproject config - and r
 │   │   └── production.py
 │   ├── urls.py
 │   └── wsgi.py
-├── apps/
+├── app-1/
 │   └── __init__.py
-├── configs/
-│   ├── apache2_vhost.sample
-│   └── README
-├── doc/
+├── app-2/
+│   └── __init__.py
+...
+├── app-n/
+│   └── __init__.py
+├── docs/
 │   ├── Makefile
 │   └── source/
 │       └── *snap*
 ├── manage.py
-├── README
 ├── run/
 │   ├── media/
 │   │   └── README
