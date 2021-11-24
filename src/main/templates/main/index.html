@@ -1,11 +1,22 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Main Title{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
     <div class="features">
-        <h1>Main Title</h1>
+        <h1>{{ title | upper }}</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consectetur est deserunt voluptate aperiam incidunt provident quos harum, eligendi doloremque possimus ratione praesentium nostrum officiis modi nisi. Nobis, corrupti inventore!</p>
+        
+        {% for element in values %}
+            {% if element == "hello" %}
+                <p>{{ element | lower }}</p>
+            {% endif %}
+        {% endfor %}
+
+        {% for element in object %}
+             <p>{{ element | lower }}</p>
+        {% endfor %}
+
         <button class="btn btn-danger">Tap</button>
     </div>
 {% endblock content %}
