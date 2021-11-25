@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 def index(request):
     data = {
-        "title": "main",
+        "title": "home",
         "values": ["some", "hello", "123"],
         "object": {
             "car": "bmw",
