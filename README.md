@@ -1,6 +1,8 @@
 Learning Django Tutorials / Building a Django Website with itProger 
 
 # itProger - Learning Django
+![alt text](app_about.png "App")
+
 Уроки изучения Django / Создание сайта на Джанго по видеокурсу
 
 ## Links
