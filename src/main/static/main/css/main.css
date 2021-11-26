@@ -1,15 +1,19 @@
+/*
+Color scheme
+https://colorhunt.co/palette/b983ff94b3fd94daff99feff
+*/
 body {
-    background: rgba(255, 0, 0, 0.288);
+    background: #94B3FD;
 }
 
 aside {
     float: left;
-    background: rgba(255, 0, 0, 0.411);
+    background: #B983FF;
     width: 20%;
     padding: 2.5%;
     height: 100vh;
     color: white;
-    border-right: 5px solid rgba(143, 91, 91, 0.199);
+    border-right: 5px solid #94DAFF;
 }
 
 aside img {
@@ -60,3 +64,12 @@ main .features {
 
 main .features h1 {font-size: 50px;}
 main .features p {max-width: 400px; margin: 20px auto;}
+
+.alert-warning {
+    float: left;
+    clear: both;
+    background-color: #EAEAEA;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
