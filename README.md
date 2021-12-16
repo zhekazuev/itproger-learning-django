@@ -1,7 +1,7 @@
 Learning Django Tutorials / Building a Django Website with itProger 
 
 # itProger - Learning Django
-![alt text](app_about.png "App")
+![alt text](assets/img/app_about.png "App")
 
 Уроки изучения Django / Создание сайта на Джанго по видеокурсу
 
@@ -9,10 +9,43 @@ Learning Django Tutorials / Building a Django Website with itProger
 [Уроки изучения Django / Создание сайта на Джанго](https://www.youtube.com/watch?v=L-FyeHQwo4U&list=PLDyJYA6aTY1nZ9fSGcsK4wqeu-xaJksQQ)
 
 
-## Project Structure Example
+## Stack
+
+- Django
+- TailwindCSS or Bootstrap
+- Docker
+- Heroku
+- GitHub Actions
+
+## Project Structure
+
+Project structure
+```sh
+$ cd project_repository_folder/  <- Repo from github
+$ django-admin startproject config && mv config src
+$ tree
+.
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── _config.yml   # config for GitHub Pages
+├── assets   # project info for README.md 
+│   └── img
+├── dist   # files for GitHub Pages
+│   ├── css
+│   ├── img
+│   ├── index.html
+│   └── style.css
+├── heroku.yml   # config for Heroku
+├── package-lock.json   # for Docker build
+├── package.json   # for Docker build and GitHub Actions
+├── src/...   # Django Project Source Code
+├── tailwind.config.js   # Config for TailwindCSS
+└── venv   # local venv
+```
 
 
-Example from [there](https://github.com/alexey-goloburdin/django-clean-template)
+Django Project Structure
 ```sh
 $ cd project_repository_folder/  <- Repo from github
 $ django-admin startproject config
@@ -23,82 +56,28 @@ LICENSE
 src/                  <- project root - django-admin startproject config - and rename to src
 ├── config/              <- Django root - django-admin startproject config
 │   ├── __init__.py
-│   ├── settings/
-│   │   ├── common.py
-│   │   ├── development.py
-│   │   ├── i18n.py
-│   │   ├── __init__.py
-│   │   └── production.py
+│   ├── __pycache__
+│   ├── asgi.py
+│   ├── create_rundom_secret.py
+│   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-├── app-1/
-│   └── __init__.py
-├── app-2/
-│   └── __init__.py
-...
-├── app-n/
-│   └── __init__.py
-├── docs/
-│   ├── Makefile
-│   └── source/
-│       └── *snap*
-├── manage.py
-├── run/
-│   ├── media/
-│   │   └── README
-│   ├── README
-│   └── static/
-│       └── README
-├── static/
-│   └── README
-└── templates/
-    ├── base.html
-    ├── core
-    │   └── login.html
-    └── README
-```
-
-Example from Django-docs
-```sh
-$ cd project_repository_folder/  <- Repo from github
-$ django-admin startproject [projectname]
-$ tree
-README
-LICENSE
-.gitignore
-[projectname]/                  <- project root - django-admin startproject [projectname]
-├── [projectname]/              <- Django root - django-admin startproject [projectname]
+├── main   # app with name - main
 │   ├── __init__.py
-│   ├── settings/
-│   │   ├── common.py
-│   │   ├── development.py
-│   │   ├── i18n.py
-│   │   ├── __init__.py
-│   │   └── production.py
-│   ├── urls.py
-│   └── wsgi.py
-├── apps/
-│   └── __init__.py
-├── configs/
-│   ├── apache2_vhost.sample
-│   └── README
-├── doc/
-│   ├── Makefile
-│   └── source/
-│       └── *snap*
+│   ├── __pycache__
+│   ├── admin.py
+│   ├── ...
+│   └── views.py
 ├── manage.py
-├── README
-├── run/
-│   ├── media/
-│   │   └── README
-│   ├── README
-│   └── static/
-│       └── README
-├── static/
-│   └── README
-└── templates/
-    ├── base.html
-    ├── core
-    │   └── login.html
-    └── README
+├── news   # app with name - news
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── admin.py
+│   ├── ...
+│   └── views.py
+├── static   # static file - tailwind, css with tailwind minify classes
+│   ├── css
+│   ├── img
+│   └── tailwind.css
+└── templates   # templates for Django
 ```
