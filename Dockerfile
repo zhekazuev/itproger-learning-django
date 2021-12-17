@@ -7,8 +7,8 @@ FROM node:alpine AS front-compiler
 WORKDIR /django
 COPY package*.json ./
 RUN npm ci
-COPY src/static/ ./src/static/
-COPY src/templates/ ./src/templates/
+COPY src/ ./src/
+# COPY src/templates/ ./src/templates/
 RUN npm run build
 
 # # Stage 2 - Delete python trash and build
