@@ -5,7 +5,7 @@
   "description": "Learning Django Tutorials / Building a Django Website with itProger",
   "main": "index.js",
   "scripts": {
-    "html-minify-django": "html-minifier --collapse-whitespace --remove-comments --input-dir src/ --output-dir /django/src/templates --file-ext html",
+    "html-minify-django": "html-minifier --collapse-whitespace --remove-comments --input-dir src/ --output-dir /django/src/ --file-ext html",
     "tailwindcss-minify-django": "npx tailwindcss -i src/static/tailwind.css -o /django/src/static/css/style.css --minify",
     "html-minify-ghpages": "html-minifier --collapse-whitespace --remove-comments --input-dir src/static --output-dir ghpages/dist/ --file-ext html",
     "tailwindcss-minify-ghpages": "npx tailwindcss -i src/static/tailwind.css -o ghpages/dist/css/style.css --minify",
