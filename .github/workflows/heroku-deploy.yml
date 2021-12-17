@@ -1,0 +1,44 @@
+name: Deploy app to Heroku
+
+on:
+  push:	
+    paths:
+      - ".github/workflows/heroku-deploy.yml"
+      - "src/"
+      - ".dockerignore"
+      - ".gitignore"
+      - "Dockerfile"
+      - "heroku.yml"
+      - "package.json"
+      - "package-lock.json"
+      - 'README.md'
+      - 'requirements.txt'
+      - 'tailwind.config.json'
+    branches:	
+      - main
+  pull_request:	
+    branches:	
+      - main
+
+#set environment variables 
+env:
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  APP_NAME: ${{ 'itproget-learning-django' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Log in to Heroku Container Registry
+        env: 
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login 
+    
+      - name: Build the image and push to Container Registry
+        run: heroku container:push web -a $APP_NAME
+      
+      - name: Release the image to your app
+        run: heroku container:release web -a $APP_NAME
