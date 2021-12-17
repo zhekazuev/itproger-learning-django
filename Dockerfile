@@ -36,6 +36,6 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./
 COPY --from=front-compiler /django/src/static/ ./static/
-COPY --from=front-compiler /django/src/templates/ ./templates/
+COPY --from=front-compiler /django/src/ ./src/
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 #CMD ["gunicorn", "--chdir", "core", "--workers", "1", "wsgi:app"]
