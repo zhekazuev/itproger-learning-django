@@ -1,10 +1,13 @@
-# Develop
-.vscode/*
-
-#Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
 
 # Environments
 .env
@@ -15,8 +18,17 @@ ENV/
 env.bak/
 venv.bak/
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# node_modules and bootstrap 
+node_modules
+
+# SCSS and SASS
+.sass-cache
+*.min.js
+*.css
+*.min.css
+*.css.map
+*.sass.map
+*.scss.map
+
+.github
+dist
