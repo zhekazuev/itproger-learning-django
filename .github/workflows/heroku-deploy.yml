@@ -23,7 +23,7 @@ on:
 #set environment variables 
 env:
   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-  APP_NAME: ${{ 'itproget-learning-django' }}
+  APP_NAME: ${{ 'itproger-learning-django' }}
 
 jobs:
   build:
