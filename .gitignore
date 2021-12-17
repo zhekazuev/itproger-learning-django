@@ -30,5 +30,3 @@ node_modules
 *.sass.map
 *.scss.map
 
-.github
-dist
