@@ -45,7 +45,7 @@ jobs:
       # - name: Build the image and push to Container Registry
       #   run: heroku container:push web -a $APP_NAME
       
-       - name: Push the image to Container Registry
+      - name: Push the image to Container Registry
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
         run: docker build -t registry.heroku.com/$APP_NAME/web .
