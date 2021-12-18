@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", False)
+DEBUG = os.getenv("DJANGO_DEBUG", False)
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1, 0.0.0.0, localhost').split(', ')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1, 0.0.0.0, localhost').split(', ')
 
 # Application definition
 
@@ -100,11 +100,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.{}'.format(
+             os.getenv('DJANGO_DATABASE_ENGINE', 'sqlite3')
+         ),
+        'NAME': os.getenv('DJANGO_DATABASE_NAME', BASE_DIR / 'db.sqlite3'),
+        'USER': os.getenv('DJANGO_DATABASE_USERNAME', 'myprojectuser'),
+        'PASSWORD': os.getenv('DJANGO_DATABASE_PASSWORD', 'password'),
+        'HOST': os.getenv('DJANGO_DATABASE_HOST', '127.0.0.1'),
+        'PORT': os.getenv('DJANGO_DATABASE_PORT', 5432),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -128,9 +133,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = os.getenv("DJANGO_LANGUAGE_CODE", "en-us")
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.getenv("DJANGO_TIME_ZONE", "UTC")
 
 USE_I18N = True
 
