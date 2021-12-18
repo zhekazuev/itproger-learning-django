@@ -22,14 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "secret")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", False)
 
-ALLOWED_HOSTS = []
-if os.getenv("ALLOWED_HOSTS", False):
-    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").replace(', ', ' ').split(" ")
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1, 0.0.0.0, localhost').split(', ')
 
 # Application definition
 
@@ -57,10 +55,31 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+
+# Templates
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+# project/
+#   appname/
+#     templates/ 
+#       appname/  <-- another folder with app name so 'appname/base.html' is from here
+#         base.html
+#     views.py
+#     ...
+
+#   templates/    <-- root template folder so 'base.html' is from here
+#     base.html
+
+#   settings.py
+#   views.py
+#   ...
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # BASE_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,9 +144,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# Add these new lines
+STATICFILES_DIRS = (
+    BASE_DIR / 'static',
+    # '/var/www/static/',
+
+)
+
+# For production deployment - STATIC_ROOT="/var/www/example.com/static/"
+STATIC_ROOT = os.getenv("STATIC_ROOT", BASE_DIR / 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
