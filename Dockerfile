@@ -29,8 +29,6 @@ FROM base
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DEBUG True
-ENV ALLOWED_HOSTS itproger-learning-django.herokuapp.com
 ENV PORT 8000
 EXPOSE $PORT
 COPY --from=builder /install /usr/local/
