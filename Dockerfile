@@ -30,7 +30,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBUG True
-ENV ALLOWED_HOSTS 127.0.0.1, localhost
+ENV ALLOWED_HOSTS itproger-learning-django.herokuapp.com
 ENV PORT 8000
 EXPOSE $PORT
 COPY --from=builder /install /usr/local/
@@ -39,5 +39,4 @@ COPY --from=builder /install /usr/local/
 COPY src/ ./
 COPY --from=front-compiler /django/src/static/ ./static/
 COPY --from=front-compiler /django/src/ ./
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 CMD gunicorn --workers 1 --bind 0.0.0.0:$PORT core.wsgi
