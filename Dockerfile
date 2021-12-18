@@ -40,4 +40,5 @@ RUN python manage.py makemigrations
 RUN python manage.py migrate
 COPY --from=front-compiler /django/src/static/ /var/www/itproger-learning-django/static/
 COPY --from=front-compiler /django/src/ ./
-CMD gunicorn --workers 1 --bind :$PORT core.wsgi
+CMD python manage.py runserver 0.0.0.0:$PORT
+# CMD gunicorn --workers 1 --bind :$PORT core.wsgi
