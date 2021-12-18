@@ -29,6 +29,7 @@ FROM base
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DJANGO_STATIC_ROOT /var/www/itproger-learning-django/static/
 ENV PORT 8000
 EXPOSE $PORT
 COPY --from=builder /install /usr/local/
@@ -36,6 +37,6 @@ COPY --from=builder /install /usr/local/
 # RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./
 RUN python manage.py collectstatic --noinput
-COPY --from=front-compiler /django/src/static/ ./static/
+COPY --from=front-compiler /django/src/static/ /var/www/itproger-learning-django/static/
 COPY --from=front-compiler /django/src/ ./
-CMD gunicorn --workers 1 --bind 0.0.0.0:$PORT core.wsgi
+CMD gunicorn --workers 1 --bind :$PORT core.wsgi
