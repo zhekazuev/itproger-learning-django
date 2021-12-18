@@ -37,6 +37,8 @@ COPY --from=builder /install /usr/local/
 # RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./
 RUN python manage.py collectstatic --noinput
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 COPY --from=front-compiler /django/src/static/ /var/www/itproger-learning-django/static/
 COPY --from=front-compiler /django/src/ ./
 CMD gunicorn --workers 1 --bind :$PORT core.wsgi
