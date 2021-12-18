@@ -155,8 +155,6 @@ STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", BASE_DIR / 'staticfiles')
 # Add these new lines
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
-    # '/var/www/static/',
-
 )
 
 # Default primary key field type
