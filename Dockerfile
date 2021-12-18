@@ -29,13 +29,15 @@ FROM base
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DEBUG True
-EXPOSE 8000
+# ENV DEBUG True
+ENV ALLOWED_HOSTS 127.0.0.1, localhost
+ENV PORT 8000
+EXPOSE $PORT
 # COPY --from=builder /install /usr/local/
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./
 COPY --from=front-compiler /django/src/static/ ./static/
-COPY --from=front-compiler /django/src/ ./src/
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-#CMD ["gunicorn", "--chdir", "core", "--workers", "1", "wsgi:app"]
+COPY --from=front-compiler /django/src/ ./
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD gunicorn --workers 1 --bind 0.0.0.0:$PORT core.wsgi
