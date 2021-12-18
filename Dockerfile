@@ -29,7 +29,6 @@ FROM base
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-# ENV DJANGO_STATIC_ROOT /var/www/itproger-learning-django/static/
 ENV PORT 8000
 EXPOSE $PORT
 COPY --from=builder /install /usr/local/
