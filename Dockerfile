@@ -35,6 +35,7 @@ COPY --from=builder /install /usr/local/
 # COPY requirements.txt requirements.txt
 # RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./
+RUN python manage.py collectstatic --noinput
 COPY --from=front-compiler /django/src/static/ ./static/
 COPY --from=front-compiler /django/src/ ./
 CMD gunicorn --workers 1 --bind 0.0.0.0:$PORT core.wsgi
