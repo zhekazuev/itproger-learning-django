@@ -4,7 +4,7 @@ on:
   push:	
     paths:
       - ".github/workflows/heroku-deploy.yml"
-      - "src/"
+      - "src/**"
       - ".dockerignore"
       - ".gitignore"
       - "Dockerfile"
