@@ -10,3 +10,9 @@ Dockerfile
 heroku.yml
 LICENSE
 README.md
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
