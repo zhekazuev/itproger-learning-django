@@ -40,5 +40,4 @@ COPY --from=front-compiler /django/src/ ./
 CMD python manage.py collectstatic --noinput && \
     python manage.py makemigrations && \
     python manage.py migrate && \
-    python manage.py runserver 0.0.0.0:$PORT
-# CMD gunicorn --workers 1 --bind :$PORT core.wsgi
+    gunicorn --workers 1 --bind :$PORT core.wsgi
