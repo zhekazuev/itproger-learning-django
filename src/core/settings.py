@@ -78,7 +78,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # BASE_DIR / 'templates',
+            BASE_DIR / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -152,10 +152,14 @@ STATIC_URL = '/static/'
 # # For production deployment - STATIC_ROOT="/var/www/example.com/static/"
 STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", BASE_DIR / 'staticfiles')
 
-# # Add these new lines
-# STATICFILES_DIRS = (
-#     BASE_DIR / 'static',
-# )
+# Add these new lines
+STATICFILES_DIRS = (
+    BASE_DIR / 'static',
+)
+
+# Example: "/var/www/example.com/media/"
+MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", BASE_DIR / 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
