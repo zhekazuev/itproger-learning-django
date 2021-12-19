@@ -32,7 +32,7 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
 
-      - name: Build the image to Container Registry
+      - name: Build and tag the image
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
         run: docker build -t registry.heroku.com/$APP_NAME/web .
@@ -40,7 +40,7 @@ jobs:
       - name: Push the image to Container Registry
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
-        run: docker build -t registry.heroku.com/$APP_NAME/web --cache-from=registry.heroku.com/$APP_NAME/web .
+        run: docker push registry.heroku.com/$APP_NAME/web .
 
       - name: Release the image
         env:
