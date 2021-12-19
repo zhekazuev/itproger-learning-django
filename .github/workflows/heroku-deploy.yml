@@ -36,11 +36,16 @@ jobs:
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
         run: docker build -t registry.heroku.com/$APP_NAME/web .
-      
-      - name: Push the image to Container Registry
+
+      - name: Tag the image
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
-        run: docker push -t registry.heroku.com/$APP_NAME/web .
+        run: docker tag $APP_NAME/latest registry.heroku.com/$APP_NAME/web
+
+      - name: Push the image
+        env:
+          APP_NAME: ${{ 'itproger-learning-django' }}
+        run: docker push registry.heroku.com/$APP_NAME/web
 
       - name: Release the image
         env:
