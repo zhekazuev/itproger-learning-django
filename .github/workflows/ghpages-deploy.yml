@@ -27,8 +27,9 @@ jobs:
       
       - name: Create dirs and copy source files
         run: |
-          mkdir -p /tmp/before/{img,about/references}
-          mkdir -p /tmp/after/{img,about/references}
+          mkdir -p /tmp/before/{assets/{img},about/references}
+          mkdir -p /tmp/after/{assets/{img},about/references}
+          cp ./assets/img/* /tmp/after/assets/img
           cp ./public/* /tmp/after/
           cp ./README.md /tmp/after/about/
           cp _config.yml /tmp/after
