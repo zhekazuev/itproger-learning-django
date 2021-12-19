@@ -1,0 +1,61 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:	
+    paths:
+      - ".github/workflows/ghpages-deploy.yml"
+      - "assets"
+      - "public"
+      - '_config.yml'
+      - 'README.md'
+      - 'package.json'
+    branches:	
+      - main
+  pull_request:	
+    branches:	
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest    
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      - name: Check out repository code
+        uses: actions/checkout@master
+      
+      - name: Create dirs and copy source files
+        run: |
+          mkdir -p /tmp/before/{img,about/references}
+          mkdir -p /tmp/after/{img,about/references}
+          cp ./public/*.html /tmp/before/
+          cp ./README.md /tmp/after/about/
+          cp _config.yml /tmp/after
+
+      # Listing before
+      - name: List files in the /tmp/before - before build and compress images
+        run: tree /tmp/before
+
+      # # Compressing images
+      # - name: Compress Images
+      #   uses: calibreapp/webp-optimizer@master
+      #   with:
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
+      #     jpegQuality: "80"
+      #     pngQuality: "80"
+      #     webpQuality: "80"
+      
+      # Listing after
+      - name: List files in the /tmp/after - after build and compress images
+        run: tree /tmp/after
+
+      # Deploy
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: /tmp/after/ # The folder the action should deploy.
+
+      # Job Status
+      - run: echo "🍏 This job's status is ${{ job.status }}."

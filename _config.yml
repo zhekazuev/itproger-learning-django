@@ -2,9 +2,9 @@ title: itProger Learning Django
 author: Eugene Zuev
 theme: jekyll-theme-cayman
 branch: "gh-pages" #  use "master" for user page or "gh-pages" for project pages
-# exclude:
-#  - .gitignore
-# paginate_path: "/about/page:num/"
+exclude:
+ - .gitignore
+paginate_path: "/about/page:num/"
 
 navbar-links:
   About Me: "https://zhekazuev.github.io"
