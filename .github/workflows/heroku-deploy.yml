@@ -40,7 +40,7 @@ jobs:
       - name: Push the image to Container Registry
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
-        run: docker build -t registry.heroku.com/$APP_NAME/web .
+        run: docker build -t registry.heroku.com/$APP_NAME/web --cache-from=registry.heroku.com/$APP_NAME/web .
 
       - name: Release the image
         env:
