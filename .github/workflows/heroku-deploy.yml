@@ -40,7 +40,7 @@ jobs:
       - name: Tag the image
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
-        run: docker tag $APP_NAME/latest registry.heroku.com/$APP_NAME/web
+        run: docker tag $APP_NAME registry.heroku.com/$APP_NAME/web
 
       - name: Push the image
         env:
@@ -51,4 +51,4 @@ jobs:
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release web -a $APP_NAME
+        run: heroku container:release web --app-name=$APP_NAME
