@@ -27,21 +27,23 @@ For Local environments use .env file, like this
 cat .env
 PYTHONDONTWRITEBYTECODE=1
 PYTHONUNBUFFERED=1
-DJANGO_ALLOWED_HOSTS=127.0.0.1, 0.0.0.0
-DJANGO_PORT=8000
-DJANGO_SECRET_KEY=secret
-DJANGO_STATIC_SECRET_KEY=your_space_secret_key
-DJANGO_STATIC_ACCESS_KEY_ID=your_space_access_key_id
-DJANGO_LOGLEVEL=INFO
+DJANGO_SECRET_KEY=your_secret_key
 DJANGO_DEBUG=True
+DJANGO_ALLOWED_HOSTS=127.0.0.1, 0.0.0.0, localhost
+DJANGO_PORT=8000
 DJANGO_DATABASE_ENGINE=sqlite3
-DJANGO_DATABASE_HOST=sqlite3
+DJANGO_DATABASE_NAME=db.sqlite3
+DJANGO_DATABASE_USERNAME=myprojectuser
+DJANGO_DATABASE_PASSWORD=password
+DJANGO_DATABASE_HOST=127.0.0.1
 DJANGO_DATABASE_PORT=5432
-DJANGO_DATABASE_USERNAME=sqlite3_user
-DJANGO_DATABASE_PASSWORD=sqlite3_password
-DJANGO_DATABASE_NAME=sqlite3_name
+DJANGO_STATIC_ACCESS_KEY_ID=your_space_access_key_id
+DJANGO_STATIC_SECRET_KEY=your_space_secret_key
 DJANGO_STATIC_BUCKET_NAME=your_space_name
 DJANGO_STATIC_ENDPOINT_URL=https://nyc3.digitaloceanspaces.com
+DJANGO_STATIC_ROOT=staticfiles/ # /var/www/itproger-learning-django/static/
+DJANGO_MEDIA_ROOT=mediafiles/ # /var/www/itproger-learning-django/media/
+DJANGO_LOGLEVEL=info
 ```
 
 ```sh

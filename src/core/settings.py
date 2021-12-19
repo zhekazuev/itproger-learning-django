@@ -157,8 +157,11 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
+
+MEDIA_URL = '/media/'
+
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", BASE_DIR / 'media')
+MEDIA_ROOT = os.getenv("DJANGO_MEDIA_ROOT", BASE_DIR / 'mediafiles')
 
 
 # Default primary key field type
