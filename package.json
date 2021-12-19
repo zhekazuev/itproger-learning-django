@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "html-minify-django": "html-minifier --collapse-whitespace --remove-comments --input-dir src/ --output-dir /django/src/ --file-ext html",
-    "tailwindcss-minify-django": "npx tailwindcss -o /django/src/static/tailwind.css --minify",
+    "tailwindcss-minify-django": "npx tailwindcss -i ./src/static/tailwind-input.css -o /django/src/static/tailwind.css --minify",
     "html-minify-ghpages": "html-minifier --collapse-whitespace --remove-comments --input-dir src/static --output-dir ghpages/dist/ --file-ext html",
     "tailwindcss-minify-ghpages": "npx tailwindcss -o ghpages/dist/css/style.css --minify",
     "build": "npm run html-minify-django && npm run tailwindcss-minify-django"
