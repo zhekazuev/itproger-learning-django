@@ -44,6 +44,10 @@ DJANGO_STATIC_BUCKET_NAME=your_space_name
 DJANGO_STATIC_ENDPOINT_URL=https://nyc3.digitaloceanspaces.com
 ```
 
+```sh
+docker run --env-file src/.env -d -p 8000:8000 itproger-django:0.12
+```
+
 Project structure
 ```sh
 $ cd project_repository_folder/  <- Repo from github
