@@ -152,10 +152,10 @@ STATIC_URL = '/static/'
 # # For production deployment - STATIC_ROOT="/var/www/example.com/static/"
 STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", BASE_DIR / 'staticfiles')
 
-# Add these new lines
-STATICFILES_DIRS = (
-    BASE_DIR / 'static',
-)
+# # Add these new lines
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'static',
+# )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
