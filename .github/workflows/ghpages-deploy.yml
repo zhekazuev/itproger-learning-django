@@ -32,7 +32,7 @@ jobs:
           cp ./assets/img/* /tmp/after/about/assets/img/
           cp ./public/* /tmp/after/
           cp ./README.md /tmp/after/about/
-          cp _config.yml /tmp/after
+          # cp _config.yml /tmp/after
 
       # Listing before
       - name: List files in the /tmp/before - before build and compress images
