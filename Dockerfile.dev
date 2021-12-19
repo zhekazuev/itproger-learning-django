@@ -39,4 +39,5 @@ RUN python manage.py makemigrations
 RUN python manage.py migrate
 COPY --from=front-compiler /django/src/static/ ./staticfiles/
 COPY --from=front-compiler /django/src/ ./
-CMD gunicorn --workers 1 --bind :8000 core.wsgi
+CMD python manage.py runserver 0.0.0.0:$PORT
+# CMD gunicorn --workers 1 --bind :8000 core.wsgi
