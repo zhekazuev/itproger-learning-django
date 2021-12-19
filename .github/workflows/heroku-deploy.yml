@@ -46,4 +46,4 @@ jobs:
         env:
           APP_NAME: ${{ 'itproger-learning-django' }}
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release web --app-name=$APP_NAME
+        run: heroku container:release web --app=$APP_NAME
