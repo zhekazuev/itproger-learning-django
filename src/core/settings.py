@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.{}'.format(
              os.getenv('DJANGO_DATABASE_ENGINE', 'sqlite3')
          ),
-        'NAME': os.getenv('DJANGO_DATABASE_NAME', 'db.sqlite3'),
+        'NAME': os.getenv('DJANGO_DATABASE_NAME', BASE_DIR / 'db.sqlite3'),
         'USER': os.getenv('DJANGO_DATABASE_USERNAME', 'myprojectuser'),
         'PASSWORD': os.getenv('DJANGO_DATABASE_PASSWORD', 'password'),
         'HOST': os.getenv('DJANGO_DATABASE_HOST', '127.0.0.1'),
@@ -149,13 +149,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# For production deployment - STATIC_ROOT="/var/www/example.com/static/"
-STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", BASE_DIR / 'staticfiles')
+# # For production deployment - STATIC_ROOT="/var/www/example.com/static/"
+# STATIC_ROOT = os.getenv("DJANGO_STATIC_ROOT", BASE_DIR / 'staticfiles')
 
-# Add these new lines
-STATICFILES_DIRS = (
-    BASE_DIR / 'static',
-)
+# # Add these new lines
+# STATICFILES_DIRS = (
+#     BASE_DIR / 'static',
+# )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
