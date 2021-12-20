@@ -10,7 +10,7 @@ def index(request):
             "hobby": "cars"
         }
     }
-    return render(request, "main/index.html", data)
+    return render(request, "main/index.html", {"data": data})
 
 def about(request):
     data = {
@@ -22,7 +22,7 @@ def about(request):
             "hobby": "cars"
         }
     }
-    return render(request, "main/about.html", data)
+    return render(request, "main/about.html", {"data": data})
 
 def contacts(request):
     data = {
@@ -34,4 +34,4 @@ def contacts(request):
             "hobby": "cars"
         }
     }
-    return render(request, "main/contacts.html", data)
+    return render(request, "main/contacts.html", {"data": data})

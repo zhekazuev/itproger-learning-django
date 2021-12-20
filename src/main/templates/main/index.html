@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}{{ data.title }}{% endblock title %}
 
 {% block content %}
     <div class="container px-5 pt-12 mx-auto">
         <div class="flex flex-col text-center w-full mb-10">
-            <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">{{ title | upper }}</h2>
+            <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">{{ data.title | upper }}</h2>
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Lorem, ipsum dolor.</h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
                 Edison bulb retro cloud bread echo park, 
@@ -25,17 +25,17 @@
             <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">JSON Objects from data</h2>
         </div>
         <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3">
-            {% if object %}
+            {% if data.object %}
                 <div class="p-4">
                     <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ object }}</h2>
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ data.object }}</h2>
                         </div>
                     </div>
                 </div>
             {% endif %}
-            {% if values %}
-                {% for element in values %}
+            {% if data.values %}
+                {% for element in data.values %}
                     {% if element == "hello" %}
                         <div class="p-4 ">
                             <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
@@ -46,7 +46,9 @@
                         </div> 
                     {% endif %}
                 {% endfor %}
-                {% for element in object %}
+            {% endif %}
+            {% if data.object %}
+                {% for element in data.object %}
                     <div class="p-4 ">
                         <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                             <div class="p-6">
