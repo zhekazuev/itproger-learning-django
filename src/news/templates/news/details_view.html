@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock title %}
+
+{% block content %}
+    <div class="container px-5 p-12 mx-auto flex items-center justify-center flex-col">
+        <img class="object-cover object-center rounded pb-12" src="https://picsum.photos/1000/200" alt="blog">
+        <div class="text-center lg:w-2/3 w-full">
+            <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">{{ article.date }}</h2>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ article.title }}</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                {{ article.full_text }}
+            </p>
+        </div>
+    </div>
+{% endblock content %}
