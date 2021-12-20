@@ -27,23 +27,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Log in to Heroku Container Registry
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+      - name: Push to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "itproger-learning-django" #Must be unique in Heroku
+          heroku_email: "zhekazuev@gmail.com"
+          usedocker: true
 
-      - name: Build and tag the image
-        env:
-          APP_NAME: ${{ 'itproger-learning-django' }}
-        run: docker build -t registry.heroku.com/$APP_NAME/web .
+      # - name: Log in to Heroku Container Registry
+      #   env:
+      #     HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      #   run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
 
-      - name: Push the image
-        env:
-          APP_NAME: ${{ 'itproger-learning-django' }}
-        run: docker push registry.heroku.com/$APP_NAME/web
+      # - name: Build and tag the image
+      #   env:
+      #     APP_NAME: ${{ 'itproger-learning-django' }}
+      #   run: docker build -t registry.heroku.com/$APP_NAME/web .
 
-      - name: Release the image
-        env:
-          APP_NAME: ${{ 'itproger-learning-django' }}
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release web --app=$APP_NAME
+      # - name: Push the image
+      #   env:
+      #     APP_NAME: ${{ 'itproger-learning-django' }}
+      #   run: docker push registry.heroku.com/$APP_NAME/web
+
+      # - name: Release the image
+      #   env:
+      #     APP_NAME: ${{ 'itproger-learning-django' }}
+      #     HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      #   run: heroku container:release web --app=$APP_NAME
