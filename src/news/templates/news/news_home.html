@@ -3,21 +3,48 @@
 {% block title %}NEWS{% endblock title %}
 
 {% block content %}
-    <div class="features">
-        <h1>NEWS</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consectetur est deserunt voluptate aperiam incidunt provident quos harum, eligendi doloremque possimus ratione praesentium nostrum officiis modi nisi. Nobis, corrupti inventore!</p>
-        
-        {# check news length#}
+    <div class="container px-5 pt-12 mx-auto">
         {% if news %}
+            <div class="flex flex-col text-center w-full mb-20">
+                <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">NEWS</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">News like Cards</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Itaque ipsum dolores officiis magnam rem tenetur sit? 
+                    Eligendi, explicabo, adipisci ipsam debitis ut dicta commodi 
+                    similique asperiores enim tempore numquam minima?
+                </p>
+            </div>
+            <div class="flex flex-wrap -m-4">
             {# output news#}
             {% for article in news %}
-                <div class="alert alert-warning">
-                    <h3>{{ article.title }}</h3>
-                    <p>{{ article.full_text }}</p>
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://picsum.photos/720/400?random={{ forloop.counter0 }}" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ article.date }}</h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ article.title }}</h1>
+                            <p class="leading-relaxed mb-3 truncate hover:text-clip">
+                                {{ article.full_text }}
+                            </p>
+                            <div class="flex items-center flex-wrap ">
+                                <a href="{% url '' %}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
+            </div>
         {% else %}
-            <p>You don't have articles!</p>
+            <div class="flex flex-col text-center w-full mb-20">
+                <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">No articles in database</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">You don't have articles!</h1>
+            </div> 
         {% endif %}
     </div>
 {% endblock content %}

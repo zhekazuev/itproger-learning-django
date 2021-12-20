@@ -3,16 +3,39 @@
 {% block title %}Form for adding Article{% endblock title %}
 
 {% block content %}
-    <div class="features">
-        <h1>Adding article</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.title }}<br>
-            {{ form.anons }}<br>
-            {{ form.full_text }}<br>
-            {{ form.date }}<br>
-            <span>{{ error }}</span>
-            <button type="submit" class="btn btn-success">Add article</button>
-        </form>
-    </div>
+<div class="container px-5 pt-12 mx-auto">
+    <form class="bg-white p-10 rounded-lg drop-shadow-lg min-w-full" method="post">
+        {% csrf_token %}
+        <h1 class="text-center text-2xl mb-6 text-gray-600 font-bold font-sans">Adding article</h1>
+        <div>
+            <label class="text-gray-800 font-semibold block my-3 text-md" for="title">Title</label>
+            <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="title" id="title" placeholder="Lorum ipsum" />
+        </div>
+        <div>
+            <label class="text-gray-800 font-semibold block my-3 text-md" for="anons">Anons</label>
+            <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="anons" id="anons" placeholder="Lorum ipsum" />
+        </div>
+        <div>
+            <label class="text-gray-800 font-semibold block my-3 text-md" for="full_text">Text</label>
+            <div class="mt-1">
+              <textarea class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" rows="5" type="text" name="full_text" id="full_text" placeholder="News full text"></textarea>
+            </div>
+        </div>
+        <div>
+            <label class="text-gray-800 font-semibold block my-3 text-md" for="date">Date</label>
+            <input class="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="datetime" name="date" id="date" placeholder="2020-11-11 11:11:11" />
+        </div>
+        {% if error %}
+            <div class="container pt-8 mx-auto">
+                <div class="flex bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
+                    <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                    <div>
+                        <span class="font-medium">{{ error }}</span>. Add info in all inputs
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <button type="submit" class="w-full mt-6 mb-3 bg-blue-500 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">Add article</button>
+    </form>
+</div>
 {% endblock content %}
