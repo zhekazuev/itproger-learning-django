@@ -3,9 +3,15 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-    <div class="features">
-        <h1>{{ title | upper }}</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste consectetur est deserunt voluptate aperiam incidunt provident quos harum, eligendi doloremque possimus ratione praesentium nostrum officiis modi nisi. Nobis, corrupti inventore!</p>
-        <button class="btn btn-danger">Tap</button>
+    <div class="container px-5 py-12 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+        <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">{{ title | upper }}</h2>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Lorem, ipsum dolor.</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Iste consectetur est deserunt voluptate aperiam incidunt 
+            provident quos harum, eligendi doloremque possimus ratione 
+            praesentium nostrum officiis modi nisi. Nobis, corrupti inventore!
+        </p>
     </div>
 {% endblock content %}
