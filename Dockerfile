@@ -1,6 +1,6 @@
 # Flask uses gunicorn like a wsgi
 # Python base
-FROM python:alpine AS base
+FROM python:3.8-alpine AS base
 
 # Stage 1 - Compile scss and minimize html/css
 FROM node:alpine AS front-compiler
