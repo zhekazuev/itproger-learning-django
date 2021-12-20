@@ -5,6 +5,7 @@ FROM python:3.8-alpine AS base
 # Stage 1 - Compile scss and minimize html/css
 FROM node:alpine AS front-compiler
 WORKDIR /django
+COPY tailwind.config.js ./
 COPY package*.json ./
 RUN npm ci
 COPY src/ ./src/
