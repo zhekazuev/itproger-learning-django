@@ -13,3 +13,7 @@ class Article(models.Model):
     def __str__(self) -> str:
         """String for representing the Article object (in Admin site etc.)."""
         return f'{self.title}'
+
+    def get_absolute_url(self):
+        return f"/news/{self.id}"
+    
