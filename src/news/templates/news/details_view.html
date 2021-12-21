@@ -8,6 +8,8 @@
         <div class="text-center lg:w-2/3 w-full">
             <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">{{ article.date }}</h2>
             <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ article.title }}</h1>
+            <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-gray-800 transition-colors duration-150 bg-green-300 rounded-lg focus:shadow-outline hover:bg-green-500" href="{% url 'news-update' article.id %}">Update Article</a>
+            <a class="inline-flex items-center h-8 px-4 m-2 text-sm text-gray-800 transition-colors duration-150 bg-red-300 rounded-lg focus:shadow-outline hover:bg-red-500" href="{% url 'news-delete' article.id %}">Delete Article</a>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
                 {{ article.full_text }}
             </p>
