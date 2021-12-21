@@ -4,10 +4,15 @@
 
 {% block content %}
 <div class="container px-5 p-12 mx-auto flex items-center justify-center flex-col">
+    <img class="object-cover object-center rounded pb-12" src="https://picsum.photos/1000/200" alt="blog">
+    <div class="text-center lg:w-2/3 w-full">
+        <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">{{ article.date }}</h2>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ article.title }}</h1>
+    </div>
     <form class="bg-white p-10 rounded-lg min-w-full" method="post">
         {% csrf_token %}
-        <h1 class="text-center text-2xl mb-6 text-gray-600 font-bold font-sans">Deleting Artice - {{ article.title }}</h1>
-        <button type="submit" class="w-full mt-6 mb-3 bg-blue-500 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">Delete Article - {{ article.title }}</button>
+        <h1 class="text-center text-2xl mb-6 text-gray-600 font-bold font-sans">{{ article.title }}</h1>
+        <button type="submit" class="w-full mt-6 mb-3 bg-red-300 hover:bg-red-600 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-sans">Delete Article</button>
     </form>
 </div>
 {% endblock content %}
